@@ -2,7 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 MESSAGE=$(cat $1) 
-COMMITFORMAT="^(feat|fix|docs|style|ref|test|setup)(\((.*)\))?:\s?(.*)$"
+COMMITFORMAT="^(feat|fix|docs|style|ref|test|setup|release)(\((.*)\))?:\s?(.*)$"
 
 if ! [[ "$MESSAGE" =~ $COMMITFORMAT ]]; then
 echo -e '\033[1;34m# Commit message\033[0m\n'
