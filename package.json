@@ -1,15 +1,31 @@
 {
   "name": "archref",
   "version": "1.0.0",
-  "description": "Reference Architecture for LunaCrew's NodeJS projects",
-  "main": "src/app.ts",
-  "_moduleAliases": {
-    "src": "./build/src/"
+  "description": "Reference Architecture for LunaCrew's npm packages",
+  "main": "dist/index.js",
+  "types": "index.d.ts",
+  "files": [
+    "/dist",
+    "index.d.ts"
+  ],
+  "author": "Ash Trindade",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "keywords": [],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "build": "tsc",
-    "dev": "nodemon -r tsconfig-paths/register src/app.ts",
-    "start": "node build/src/app.js",
+    "dev": "nodemon -r tsconfig-paths/register src/index.ts",
+    "start": "node build/src/index.js",
     "lint": "npx eslint . --fix",
     "test": "npm run test:coverage",
     "test:unit": "jest --verbose ./test",
@@ -19,23 +35,20 @@
     "clear:build": "rm -rf build",
     "clear:coverage": "rm -rf coverage",
     "prepare": "husky install",
-    "help": "node scripts/help.js"
+    "help": "node scripts/help.js",
+    "pkg:publish": "rm -rf dist && npm run build && npm publish --access public"
   },
-  "author": "Ash Trindade",
-  "license": "All rights reserved",
   "devDependencies": {
     "@types/express": "4.17.21",
     "@types/jest": "29.5.11",
     "@types/module-alias": "2.0.4",
     "@types/node": "20.12.2",
     "@types/supertest": "2.0.16",
-    "@types/swagger-ui-express": "4.1.6",
     "@typescript-eslint/eslint-plugin": "6.13.2",
     "@typescript-eslint/parser": "6.13.2",
     "eslint": "8.57.0",
     "husky": "8.0.3",
     "jest": "29.7.0",
-    "nodemon": "3.1.0",
     "supertest": "6.3.4",
     "ts-jest": "29.1.2",
     "ts-node": "10.9.2",
@@ -51,11 +64,7 @@
     "swagger-ui-express": "5.0.0",
     "uuidv4": "6.2.13"
   },
-  "nodemonConfig": {
-    "watch": [
-      "src"
-    ],
-    "ext": ".ts, .js",
-    "ignore": []
+  "directories": {
+    "test": "test"
   }
 }
