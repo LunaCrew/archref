@@ -12,13 +12,14 @@
     "start": "node build/src/app.js",
     "lint": "npx eslint . --fix",
     "test": "npm run test:coverage",
-    "test:unit": "jest --verbose ./test/unit/",
-    "test:coverage": "jest --verbose ./test/unit/ --coverage",
-    "reset": "rm -rf node_modules && rm package-lock.json && npm install",
+    "test:unit": "jest --verbose ./test",
+    "test:coverage": "jest --verbose ./test --coverage",
+    "dependencies:reset": "rm -rf node_modules && rm package-lock.json && npm install",
+    "dependencies:fix": "node scripts/fixDependencies.js",
     "clear:build": "rm -rf build",
     "clear:coverage": "rm -rf coverage",
     "prepare": "husky install",
-    "help": "bash scripts/scripts-list.sh"
+    "help": "node scripts/help.js"
   },
   "author": "Ash Trindade",
   "license": "All rights reserved",
@@ -42,7 +43,7 @@
     "typescript": "5.4.3"
   },
   "dependencies": {
-    "@ashtrindade/logger": "1.0.5",
+    "@ashtrindade/logger": "2.0.0",
     "dotenv": "16.4.5",
     "express": "4.19.2",
     "joi": "17.12.0",
